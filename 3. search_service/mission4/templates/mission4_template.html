@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to searchAds</title>
+</head>
+
+<body>
+    <h2>Now: {{ data.tm }}</h2>
+    <ul class="">
+        {% for ad in data.ads %}
+        <h2>Ad {{ loop.index }}: {{ ad.adId }}</h2>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>

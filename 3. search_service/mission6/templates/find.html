@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome to the Ads Search Engine</title>
+    <style>
+        a{
+            text-decoration: none;
+            color: black;
+        }
+        .search{
+            margin: 0 auto;
+            width: 600px;
+            position: relative;
+        }
+        .result{
+            margin: 0 auto;
+            width: 600px;
+            position: relative;
+        }
+        article{
+            height:130px;
+        }
+        img{
+            float: left;
+            margin-right: 10px;
+            width: 130px;            
+        }
+    </style>
+</head>
+
+<body>
+    <section class="search">
+        <a href="/"><h2>Ads Search Engine</h2></a>
+        <form action="/find" method="post">
+        <input type="text" name="query" value="{{var.query}}" placeholder="Enter the keywords:">
+        <input type="submit" value="Submit">
+        </form> 
+    </section>
+
+    <section class="result">
+        <hr>
+        {% for ad in var.ads %}
+            <article>
+                <a href="{{ ad.detail_url }}"><img src="{{ ad.thumbnail }}" /></a>
+                <h4>{{ ad.title }}</h4>
+                <p>{{ ad.category }}: {{ ad.keywords }}
+                <p>Relevance: {{ ad.relevanceScore }}
+            </article>
+        {% endfor%}
+    </section>
+
+</body>
+
+</html>
